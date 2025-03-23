@@ -94,7 +94,7 @@ body.light {
 }
 .section {
     padding: 8rem 2rem 2rem; /* Increased padding-top from 6rem to 8rem */
-    min-height: 100vh;
+    min-height: 75vh;
     align-items: center;
 }
 .container {
