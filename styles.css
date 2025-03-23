@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e2a44, #34495e);
+    color: #ecf0f1;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.light {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #2c3e50;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(44, 62, 80, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #3498db;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: relative;
+}
+
+#theme-switch {
+    display: none;
+}
+
+.theme-toggle label {
+    width: 40px;
+    height: 20px;
+    background: #ecf0f1;
+    border-radius: 20px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.theme-toggle label::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: #2c3e50;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+#theme-switch:checked + label {
+    background: #3498db;
+}
+
+#theme-switch:checked + label::after {
+    transform: translateX(20px);
+}
+.section {
+    padding: 8rem 2rem 2rem; /* Increased padding-top from 6rem to 8rem */
+    min-height: 100vh;
+    align-items: center;
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #ecf0f1;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #bdc3c7;
+}
+
+.contact-info a, .contact-info span {
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+/* Glassmorphism Cards */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin-bottom: 1rem;
+    transition: transform 0.3s;
+}
+
+.glass:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+.card ul {
+    list-style: square;
+    margin-left: 1.5rem;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.skill-category {
+    background: rgba(52, 152, 219, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.skill-category strong {
+    color: #3498db;
+}
+
+/* Certifications */
+.cert-list {
+    list-style: none;
+}
+
+.cert-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(44, 62, 80, 0.9);
+    position: relative;
+    width: 100%;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Light Theme Adjustments */
+body.light .navbar,
+body.light footer {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+body.light .nav-links a,
+body.light h2,
+body.light footer p {
+    color: #2c3e50;
+}
+
+body.light .glass {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light .subtitle {
+    color: #7f8c8d;
+}
+/* About Section Layout */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+}
+
+/* Profile Image Styling */
+.profile-image {
+    flex: 0 0 auto;
+}
+
+.profile-image .image {
+    display: block;
+}
+
+.profile-image img {
+    width: 200px; /* Set a fixed width (adjust as needed) */
+    height: 200px; /* Set a fixed height (adjust as needed) */
+    object-fit: cover; /* Ensures the image scales nicely without distortion */
+    border-radius: 50%; /* Makes it circular; remove if you want it square */
+    border: 3px solid #3498db; /* Adds a subtle border */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-image img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Ensure text wraps nicely beside the image */
+.about-text {
+    flex: 1;
+    min-width: 300px; /* Prevents text from squishing on smaller screens */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-image img {
+        width: 150px; /* Smaller size on mobile */
+        height: 150px;
+    }
+}
