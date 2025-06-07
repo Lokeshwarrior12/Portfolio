@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokeshwar Kodipunjula - Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        body.dark {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark .navbar {
+            background: rgba(30, 30, 30, 0.95);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1a73e8;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        body.dark .nav-links a {
+            color: #e0e0e0;
+        }
+
+        .nav-links a:hover {
+            color: #1a73e8;
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-label {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        #theme-switch:checked + .theme-label::before {
+            content: '🌞';
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+            text-align: center;
+        }
+
+        body.dark h2 {
+            color: #e0e0e0;
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark .glass {
+            background: rgba(30, 30, 30, 0.3);
+        }
+
+        /* Project Cards */
+        .project-card {
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        body.dark .project-card h3 {
+            color: #e0e0e0;
+        }
+
+        .project-card p, .project-card ul {
+            color: #666;
+        }
+
+        body.dark .project-card p, body.dark .project-card ul {
+            color: #b0b0b0;
+        }
+
+        .project-card ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .project-card a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Project Code and Execution */
+        .code-snippet, .execution-details {
+            margin-top: 1rem;
+        }
+
+        .code-snippet h4, .execution-details h4 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        body.dark .code-snippet h4, body.dark .execution-details h4 {
+            color: #e0e0e0;
+        }
+
+        .code-snippet pre {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        body.dark .code-snippet pre {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .code-snippet code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        body.dark .code-snippet code {
+            color: #e0e0e0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        body.dark footer {
+            background: rgba(30, 30, 30, 0.95);
+        }
+
+        footer p {
+            color: #666;
+        }
+
+        body.dark footer p {
+            color: #b0b0b0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Lokeshwar</div>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#education">Education</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="index.html#certifications">Certifications</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switch">
+                <label for="theme-switch" class="theme-label">🌙</label>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="project-card glass">
+                    <h3>Skin Cancer Detection Using Deep Learning</h3>
+                    <p>Jan 2023 – April 2023</p>
+                    <a href="https://github.com/Lokeshwarrior12/Skin-Cancer-Detection-using-Deep-Learning" target="_blank">GitHub</a>
+                    <ul>
+                        <li>Built a deep learning system with EfficientNet for skin cancer detection.</li>
+                        <li>Created a web interface with HTML5, CSS3, and JavaScript.</li>
+                    </ul>
+                    <div class="code-snippet">
+                        <h4>Code Snippet</h4>
+                        <pre>
+                            <code>
+from tensorflow.keras.applications import EfficientNetB0
+model = EfficientNetB0(weights='imagenet', input_shape=(224, 224, 3))
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="execution-details">
+                        <h4>Execution Details</h4>
+                        <p>Trained on a dataset of skin lesion images, achieving 85% accuracy. Deployed web interface allows users to upload images for real-time classification.</p>
+                        <p><em>Demo/Screenshot Placeholder: Add a link to a live demo or screenshot here.</em></p>
+                    </div>
+                </div>
+                <div class="project-card glass">
+                    <h3>Weather Data Fetch & Storage Service</h3>
+                    <p>Aug 2024 – Dec 2024</p>
+                    <a href="https://github.com/Lokeshwarrior12/weather-service" target="_blank">GitHub</a>
+                    <ul>
+                        <li>Developed a backend with Node.js, Express, and MongoDB.</li>
+                        <li>Deployed RESTful APIs on Render for weather data.</li>
+                    </ul>
+                    <div class="code-snippet">
+                        <h4>Code Snippet</h4>
+                        <pre>
+                            <code>
+const express = require('express');
+const router = express.Router();
+router.get('/weather/:city', async (req, res) => {
+    const weatherData = await fetchWeather(req.params.city);
+    res.json(weatherData);
+});
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="execution-details">
+                        <h4>Execution Details</h4>
+                        <p>API fetches real-time weather data from a third-party service and stores it in MongoDB. Deployed on Render with a 99% uptime.</p>
+                        <p><em>Demo/Screenshot Placeholder: Add a link to a live demo or screenshot here.</em></p>
+                    </div>
+                </div>
+                <div class="project-card glass">
+                    <h3>Global Sales Data Analytics by IBM</h3>
+                    <p>Jan 2022 – May 2022</p>
+                    <a href="https://github.com/Lokeshwarrior12/IBM-Project-12592-1659454485" target="_blank">GitHub</a>
+                    <ul>
+                        <li>Program manager | Team of 4. Predicted insights of global superstore trends using IBM Cognos Analytics dashboards.</li>
+                        <li>Deployed RESTful APIs on Render for weather data.</li>
+                    </ul>
+                    <div class="code-snippet">
+                        <h4>Code Snippet</h4>
+                        <pre>
+                            <code>
+import pandas as pd
+data = pd.read_csv('sales_data.csv')
+insights = data.groupby('region').agg({'sales': 'sum'})
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="execution-details">
+                        <h4>Execution Details</h4>
+                        <p>Generated interactive dashboards visualizing sales trends across regions. Achieved 20% improvement in data processing efficiency.</p>
+                        <p><em>Demo/Screenshot Placeholder: Add a link to a live demo or screenshot here.</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Lokeshwar Kodipunjula. Built with 💻 and ☕.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
